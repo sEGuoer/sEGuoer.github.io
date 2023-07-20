@@ -1,0 +1,17 @@
+img{
+    height: 25px;
+    width: 50px;
+}
+.picture_and_introduction{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-right: 200px;
+    border: 3px solid aquamarine;
+    border-radius: 20px;
+    justify-content: center;
+    }
+.user_name{
+    font-weight: bold;
+    font-size: 20px;
+}

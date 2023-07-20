@@ -1,0 +1,25 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.favorite_content{
+    border-left: 5px solid orange;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: beige;
+    padding: 40px;
+    position: relative;
+}
+.favorite_content::before{
+    font-family: Arial; /* 设置字体为Arial */
+    content: "\201C"; /* 设置内容为左引号 */
+    color: #78C0A8; /* 设置颜色为蓝色 */
+    font-size: 64px; /* 设置字号为64px */
+    position: absolute; /* 设置绝对定位 */
+    left: 10px; /* 设置距离左侧10px */
+    top: 20px; /* 设置距离上方20px */
+}

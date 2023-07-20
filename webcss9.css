@@ -1,0 +1,18 @@
+
+@media (max-width: 768px) {
+    header ul:last-child {
+        display: none; /* 隐藏导航栏最后一个ul元素 */
+    }
+}
+
+@media (max-width: 768px) {
+    .webtitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .bq {
+        width: 100%; /* 设置宽度为100% */
+    }
+}

@@ -1,0 +1,23 @@
+.webtitle li{
+    list-style-type: none;
+    margin-right: 80px;
+    font-size: 20px;
+    font-weight:600;
+}
+
+.myselfweb{
+    margin-left: 80px;
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+
+
+.webtitle ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+}
