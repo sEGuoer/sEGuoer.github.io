@@ -82,7 +82,13 @@ body {
     font-weight: bold;
 }
 
-.section__list-item,
+.section__list-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    line-height: 26px;
+}
 .skills__item {
     display: flex;
     flex-direction: row;
