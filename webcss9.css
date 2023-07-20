@@ -1,7 +1,7 @@
-
 @media (max-width: 768px) {
     header ul:last-child {
-        display: none; /* 隐藏导航栏最后一个ul元素 */
+        display: none;
+        /* 隐藏导航栏最后一个ul元素 */
     }
 }
 
@@ -11,8 +11,33 @@
         flex-direction: row;
         justify-content: center;
     }
-    
+
     .bq {
-        width: 100%; /* 设置宽度为100% */
+        width: 100%;
+        /* 设置宽度为100% */
     }
 }
+
+@media (max-width: 768px) {
+    .picture_and_introduction {
+        display: flex;
+        flex-direction: row;
+        margin: 60px;
+        border: 3px solid aquamarine;
+        border-radius: 20px;
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    footer{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    .favorite_content{
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+
+   
