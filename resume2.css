@@ -1,0 +1,139 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: #eee;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #222;
+    font-family: 400 1em/1.8 Microsoft Yahei,PingFang SC,Avenir,Segoe UI,Hiragino Sans GB,STHeiti,"Microsoft Sans Serif",WenQuanYi Micro Hei,sans-serif
+}
+
+.container {
+    max-width: 700px;
+    background: #fff;
+    margin: 0px auto;
+    padding: 40px;
+    padding-bottom: 50px;
+}
+
+.full-name {
+    font-size: 70px;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+
+.first-name {
+    font-weight: 700;
+}
+
+.last-name {
+    font-weight: 300;
+}
+
+.contact-info {
+    font-size: 20px;
+}
+
+.contact-info .email,
+.phone {
+    color: #999;
+}
+
+.position {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.about {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.section__title {
+    color: #54AFE4;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.left,
+.right {
+    vertical-align: top;
+    line-height: 30px;
+}
+
+.left {
+    font-size: 20px;
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+    font-size: 20px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.section__list-item,
+.skills__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    line-height: 26px;
+}
+
+/* input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0 4px 0 0;
+    appearance: none;
+    position: relative;
+    background: rgb(221, 231, 228);
+    border-radius: 50%;
+
+}
+
+input[type="checkbox"]:checked::before {
+    content: "";
+    background: rgb(39, 76, 64);
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border: none;
+    border-radius: 50%;
+} */
+.details .skills__item .right input {
+    display: none;
+}
+
+/* 标签样式 */
+.details .skills__item .right label {
+    /* 转换为行内块元素 */
+    display: inline-block;
+    /* 宽度 */
+    width: 20px;
+    /* 高度 */
+    height: 20px;
+    /* 背景色 */
+    background: #C3DEF3;
+    /* 圆角 */
+    border-radius: 20px;
+    /* 右边距 */
+    margin-right: 3px;
+}
+
+/* 选择时改变标签背景色 */
+.details .skills__item .right input:checked+label {
+    background: #79A9CE;
+}
