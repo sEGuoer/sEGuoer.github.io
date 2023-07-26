@@ -1,0 +1,14 @@
+{
+  "vite/js/app.css": {
+    "file": "assets/app.css",
+    "src": "vite/js/app.css"
+  },
+  "vite/js/app.js": {
+    "css": [
+      "assets/app.css"
+    ],
+    "file": "assets/app.js",
+    "isEntry": true,
+    "src": "vite/js/app.js"
+  }
+}

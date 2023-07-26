@@ -5,10 +5,9 @@ html {
 body {
     min-height: 100%;
     background: #eee;
-    font-family: 'Lato', sans-serif;
     font-weight: 400;
     color: #222;
-    font-family: 400 1em/1.8 Microsoft Yahei,PingFang SC,Avenir,Segoe UI,Hiragino Sans GB,STHeiti,"Microsoft Sans Serif",WenQuanYi Micro Hei,sans-serif
+    font-family: inherit,sans-serif,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
 }
 
 .container {
@@ -20,13 +19,13 @@ body {
 }
 
 .full-name {
-    font-size: 70px;
+    font-size: 60px;
     text-transform: uppercase;
     margin-left: 5px;
 }
 
 .first-name {
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .last-name {
@@ -84,7 +83,7 @@ body {
 
 .section__list-item{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
     line-height: 26px;

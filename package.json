@@ -1,0 +1,13 @@
+{
+  "scripts": {
+"build": "vite build"
+},
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.0"
+  },
+  "devDependencies": {
+    "sass": "^1.64.1",
+    "vite": "^4.4.7"
+  }
+}
