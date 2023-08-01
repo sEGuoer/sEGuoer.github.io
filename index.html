@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的主页</title>
+    <title>sEGuoer's_website</title>
     <link rel="stylesheet" href="vite/build/assets/app.css">
     <style>
         body{
@@ -30,7 +30,14 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" aria-current="page" href="#resume">简历</a>
                     <a class="nav-link" href="#boke">博客</a>
-                    <a class="nav-link" href="#zuopin">作品</a>
+                    <p class="nav-link">
+                        <select class="text-success">
+                            <option value="#">学习仓库</option>
+                            <option value="#javack">Java仓库</option>
+                            <option value="#htmlck">html仓库</option>
+                            <option value="#myWebsiteck">主页仓库</option>
+                        </select>
+                    </p>
                     <a class="nav-link disabled"></a>
                 </div>
             </div>
@@ -56,7 +63,7 @@
             <div class="row  m-4 p-4 mb-5 align-items-center" id="ab">
                 <div class="d-flex flex-md-row-reverse flex-column align-items-center">
                     <div class="left col-12 col-md-6 text-center text-md-end">
-                        <a href="./resume2.html" class="text-info"><h3 class="fs-3" id="boke">博客</h3></a>
+                        <a href="#" class="text-info"><h3 class="fs-3" id="boke">博客</h3></a>
                         <h4 class="fs-6 fw-light">一句话介绍</h4>
                     </div>
                     <img src="img/A%251%60%60I%5D)S10XAIC%6086BS(32.png" alt="博客" data-aos="fade-up"
@@ -65,7 +72,25 @@
             </div>
             <div class="row m-4 p-4 mb-5 align-items-center">
                 <div class="left col-12 col-md-6 text-center text-md-start">
-                    <a href="./resume2.html" class="text-info"><h3 class="fs-3" id="zuopin">作品</h3></a>
+                    <a href="https://github.com/sEGuoer/xuexicangku" class="text-info"><h3 class="fs-3" id="javack">java仓库</h3></a>
+                    <h4 class="fs-6 fw-light">一句话介绍</h4>
+                </div>
+                <img src="img/A%251%60%60I%5D)S10XAIC%6086BS(32.png" data-aos="flip-down"
+                     alt="作品" class="right col-12 col-md-6 text-center text-md-start border rounded-4 shadow">
+            </div>
+            <div class="row  m-4 p-4 mb-5 align-items-center" id="abcd">
+                <div class="d-flex flex-md-row-reverse flex-column align-items-center">
+                    <div class="left col-12 col-md-6 text-center text-md-end">
+                        <a href="https://github.com/sEGuoer/vscode" class="text-info"><h3 class="fs-3" id="htmlck">html仓库</h3></a>
+                        <h4 class="fs-6 fw-light">一句话介绍</h4>
+                    </div>
+                    <img src="img/A%251%60%60I%5D)S10XAIC%6086BS(32.png" alt="博客" data-aos="fade-up"
+                         class="right col-12 col-md-6 text-center text-md-start border rounded-4 shadow">
+                </div>
+            </div>
+            <div class="row m-4 p-4 mb-5 align-items-center">
+                <div class="left col-12 col-md-6 text-center text-md-start">
+                    <a href="https://github.com/sEGuoer/sEGuoer.github.io" class="text-info"><h3 class="fs-3" id="myWebsiteck">主页仓库</h3></a>
                     <h4 class="fs-6 fw-light">一句话介绍</h4>
                 </div>
                 <img src="img/A%251%60%60I%5D)S10XAIC%6086BS(32.png" data-aos="flip-down"
@@ -83,6 +108,12 @@
         </div>
     </nav>
 </footer>
+<script>
+    var select = document.querySelector('select')
+    select.onchange = function () {
+        window.location=this.value;
+    }
+</script>
 <script src="vite/build/assets/app.js"></script>
 </body>
 </html>
