@@ -11,6 +11,10 @@
         body{
             overflow-x: hidden;
         }
+        #hoverfloat:hover{
+            animation-duration:1s;-webkit-animation-duration:var(--animate-duration);
+        }
+        #hoverfloat:hover{-webkit-animation-name:pulse;animation-name:pulse;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}
     </style>
 </head>
 <body>
@@ -41,6 +45,11 @@
                             <li><a class="dropdown-item" href="#myWebsiteck">主页仓库</a></li>
                         </ul>
                     </li>
+                    <a href="./index_login.html" id="hoverfloat">
+                        <button class="btn btn-danger">
+                        <span class="text-center">登录</span>
+                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -65,7 +74,7 @@
             <div class="row  m-4 p-4 mb-5 align-items-center" id="ab">
                 <div class="d-flex flex-md-row-reverse flex-column align-items-center">
                     <div class="left col-12 col-md-6 text-center text-md-end">
-                        <a href="#" class="text-info"><h3 class="fs-3" id="boke">博客</h3></a>
+                        <a href="./article_list.html" class="text-info"><h3 class="fs-3" id="boke">博客</h3></a>
                         <h4 class="fs-6 fw-light">一句话介绍</h4>
                     </div>
                     <img src="img/A%251%60%60I%5D)S10XAIC%6086BS(32.png" alt="博客" data-aos="fade-up"

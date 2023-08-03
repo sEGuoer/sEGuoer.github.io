@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>register</title>
+  <link rel="stylesheet" href="vite/build/assets/app.css">
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    #hoverfloat:hover {
+      animation-duration: 1s;
+      -webkit-animation-duration: var(--animate-duration);
+    }
+
+    #hoverfloat:hover {
+      -webkit-animation-name: pulse;
+      animation-name: pulse;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out
+    }
+
+    .card {
+      width: 640px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="h-100 d-flex flex-column m-auto justify-content-between">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <h1 class="d-flex align-items-center ">
+          <img src="img/Cache_247709949bd616a9..jpg" width="36" height="36" alt="MyPhoto">
+          <span class="fs-6">我的主页</span>
+        </h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" aria-current="page" href="#resume">简历</a>
+            <a class="nav-link" href="#boke">博客</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                学习仓库
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#javack">Java仓库</a></li>
+                <li><a class="dropdown-item" href="#htmlck">html仓库</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#myWebsiteck">主页仓库</a></li>
+              </ul>
+            </li>
+            <a href="./index_login.html" id="hoverfloat">
+              <button class="btn btn-danger">
+                <span class="text-center">登录</span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="card m-auto rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">登录</h4>
+      </div>
+      <div class="card-body text-center">
+        <form class="m-2 px-5 mx-5">
+          <div class="mb-3 text-start">
+            <label for="account" class="form-label">用户名</label>
+            <input type="text" required class="form-control" id="account" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="exampleInputEmail1" class="form-label">邮箱</label>
+            <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">输入的邮箱只用于登录，不会用作其他途径</div>
+          </div>
+          <div class="mb-3 text-start">
+            <label for="exampleInputPassword1" class="form-label">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="text-start"> <button type="submit" class="btn btn-primary">注册</button>
+             </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-md justify-content-center justify-content-md-start align-items-center">
+        <small class="my-2 text-body-secondary">Desingned by <a href="#"
+                                                                class="link-body-emphasis text-decoration-none">@sEGuoer</a>-From
+          2023 to 2033</small>
+      </div>
+    </nav>
+  </footer>
+</div>
+<script>
+  var select = document.querySelector('select')
+  select.onchange = function () {
+    window.location = this.value;
+  }
+</script>
+<script src="vite/build/assets/app.js"></script>
+</body>
+</html>
+<div class="container"></div>
