@@ -1,0 +1,23 @@
+
+/* TOC 导航 */
+
+#TOCbar{
+    text-align:left; position:fixed; width: auto; color:#2F7CFF;
+    height: auto; top:4em; right:0; margin: 0.25em /*离页面顶部与右侧的距离*/
+}
+#TOCbarTab{
+    float:left; width: 2.5em; border:1px solid #e5e5e5; border-right:none;
+    text-align:center; background:#ffffff;
+}
+#TOCbarContents{
+    float:left; overflow:auto; overflow-x:hidden; padding: 0.5em; color:#2F7CFF;
+    width:18em; min-height:6em; max-height:50em;
+    border:1px solid #e5e5e5; border-right:none; background:#ffffff;
+}
+#TOCbarContents dl{ margin:0; padding:0; }
+#TOCbarContents dt{ margin-left: 0;}
+#TOCbarContents dd{ padding-left: 1.5em; margin-bottom: 0;}
+#TOCbarContents dd, dt { cursor: pointer; }
+#TOCbarContents dd:hover, dt:hover { color:#ffffff;background:#2F7CFF;}
+
+/* TOC 导航 */
