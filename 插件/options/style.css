@@ -1,0 +1,990 @@
+.smarttoc-dialog-wrapper {
+    all: unset;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1;
+    box-sizing: border-box
+}
+
+.smarttoc-dialog-wrapper .dialog {
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px 0;
+    animation: scaleup .1s ease;
+    box-shadow: 0 0 10px #0000004d
+}
+
+@keyframes scaleup {
+    0% {
+        transform: scale(.8)
+    }
+}
+
+.smarttoc-dialog-wrapper .dialog .header {
+    min-height: 30px;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #111827
+}
+
+.smarttoc-dialog-wrapper .dialog .body {
+    padding: 20px;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5
+}
+
+.smarttoc-dialog-wrapper .dialog .footer {
+    padding: 0 20px
+}
+
+.smarttoc-dialog-wrapper .dialog .footer button + button {
+    margin-left: 8px
+}
+
+.login-popup-title {
+    font-weight: 400;
+    font-size: 18px
+}
+
+.login-popup {
+    width: 350px
+}
+
+.login-popup .hint {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 4px;
+    color: var(--text-secondary-color);
+    margin-bottom: 1em
+}
+
+.login-popup .browser-login-form {
+    color: var(--text-secondary-color);
+    font-size: 14px;
+    line-height: 20px
+}
+
+.login-popup .browser-login-form p {
+    margin-bottom: 10px
+}
+
+.login-popup .browser-login-form .account {
+    color: var(--highlight-color);
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.login-popup .email-login-form {
+    display: grid;
+    grid-template-columns:auto auto auto;
+    column-gap: 4px;
+    width: 300px
+}
+
+.login-popup .email-login-form label {
+    grid-column: 1;
+    font-size: 14px;
+    line-height: 24px;
+    white-space: nowrap
+}
+
+.login-popup .email-login-form .error {
+    grid-column: 2/-1;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 8px 0 12px;
+    color: #f74437
+}
+
+.login-popup .email-login-form .sent-hint {
+    grid-column: 2/-1;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 8px 0 12px
+}
+
+.account-pane {
+    gap: 16px;
+    display: flex;
+    flex-direction: column
+}
+
+.account-pane header h1 {
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: var(--text-primary-color)
+}
+
+.account-pane .account-section {
+    font-size: 16px;
+    color: var(--text-primary-color)
+}
+
+.account-pane .account-section-key {
+    display: inline-flex;
+    min-width: 80px;
+    font-weight: 700;
+    margin-right: 4px
+}
+
+.account-pane .account-section-value {
+    color: var(--highlight-color);
+    font-weight: 700
+}
+
+.account-pane .account-section-desc {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+    font-style: italic;
+    font-weight: 400
+}
+
+.account-pane .button-check {
+    margin-top: 20px
+}
+
+.account-pane .config-field {
+    margin-top: 6px;
+    padding: 4px 0
+}
+
+.account-pane .config-field .config-input[type=checkbox] {
+    accent-color: var(--highlight-color);
+    margin: 4px 2px 0
+}
+
+.account-pane .config-field .config-label {
+    color: var(--text-secondary-color);
+    font-size: 14px;
+    line-height: 1.5;
+    user-select: none;
+    margin-left: 8px
+}
+
+.account-pane .footer {
+    margin-bottom: 10px;
+    font-size: 14px;
+    gap: 8px;
+    color: var(--text-secondary-color);
+    white-space: nowrap
+}
+
+.account-pane .footer .separator {
+    color: var(--text-secondary-color);
+    opacity: .2
+}
+
+.account-pane .footer a {
+    opacity: .5;
+    text-decoration: none;
+    margin-left: 4px;
+    color: var(--text-secondary-color)
+}
+
+.account-pane .footer a:hover {
+    opacity: .8
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    --text-primary-color: #111827;
+    --highlight-color: #7c3aed;
+    --text-secondary-color: #4b5563;
+    display: flex;
+    justify-content: center
+}
+
+*, *:before, *:after {
+    box-sizing: border-box
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0
+}
+
+.options-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 20px;
+    width: 800px;
+    gap: 20px;
+    height: fit-content
+}
+
+.options-page.placeholder {
+    height: 600px
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+button {
+    all: initial;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: background .2s ease;
+    white-space: nowrap;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    min-height: 24px;
+    padding: 4px 12px
+}
+
+button:disabled {
+    cursor: not-allowed
+}
+
+button.small {
+    font-size: 12px;
+    border-radius: 2px;
+    font-weight: 400;
+    padding: 2px 8px;
+    min-height: 20px
+}
+
+button.large {
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 6px 12px;
+    min-height: 32px
+}
+
+button.primary {
+    background-color: #7c3aed;
+    color: #fff
+}
+
+button.primary:hover, button.primary:focus {
+    background-color: #9b61ff
+}
+
+button.primary:active {
+    background-color: #8d53f1
+}
+
+button.primary:disabled {
+    background-color: #adadad
+}
+
+button.secondary {
+    background-color: #ede9fe;
+    color: #7c3aed
+}
+
+button.secondary:hover, button.secondary:focus {
+    background-color: #f8f6ff
+}
+
+button.secondary:active {
+    background-color: #efecfc
+}
+
+button.secondary:disabled {
+    opacity: .5
+}
+
+button.text {
+    color: #7c3aed
+}
+
+button.text:hover, button.text:focus {
+    background-color: #f8f6ff
+}
+
+button.text:active {
+    background-color: #efecfc
+}
+
+button.text:disabled {
+    opacity: .5
+}
+
+button.rounded {
+    border-radius: 9999px
+}
+
+.product-card {
+    --card-width: 362px;
+    width: var(--card-width);
+    height: 580px;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    overflow: hidden;
+    --card-padding-h: 25px;
+    --card-padding-v: 20px
+}
+
+.product-card .product-header {
+    background: #f9fafb;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px var(--card-padding-h) 10px
+}
+
+.product-card .product-header .product-title {
+    color: var(--text-primary-color);
+    font-weight: 700;
+    font-size: 20px
+}
+
+.product-card .product-header .product-subtitle {
+    margin-top: 0;
+    font-size: 12px;
+    color: var(--text-secondary-color);
+    line-height: 1.3
+}
+
+.product-card .product-header .product-price {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-secondary-color)
+}
+
+.product-card .product-header .product-price .price {
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--text-primary-color)
+}
+
+.product-card .product-body {
+    overflow: hidden
+}
+
+.product-card .product-slides {
+    height: 100%;
+    transition: transform .3s ease
+}
+
+.product-card .product-slides.active-slide-0 {
+    transform: translate(calc(0 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-1 {
+    transform: translate(calc(-1 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-2 {
+    transform: translate(calc(-2 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-3 {
+    transform: translate(calc(-3 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-4 {
+    transform: translate(calc(-4 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-5 {
+    transform: translate(calc(-5 * var(--card-width)))
+}
+
+.product-card .product-slides.active-slide-6 {
+    transform: translate(calc(-6 * var(--card-width)))
+}
+
+.product-card .product-slide {
+    flex-shrink: 0;
+    padding: var(--card-padding-v) var(--card-padding-h);
+    width: var(--card-width)
+}
+
+.product-card .product-slide[disabled] * {
+    display: none
+}
+
+.product-card .product-slide .icon-step {
+    flex-shrink: 0;
+    margin-right: 14px;
+    background: #ede9fe;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #7c3aed
+}
+
+.product-card .product-slide .step-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary-color)
+}
+
+.product-card .product-slide .operations {
+    margin-top: 10px
+}
+
+.product-card .product-slide .operations .icon-arrow-right {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMuOTU5NDcgOEgxNC40NTk1TTE0LjQ1OTUgOEwxMC45NTk1IDRNMTQuNDU5NSA4TDEwLjk1OTUgMTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=);
+    width: 16px;
+    height: 16px;
+    margin-left: 4px
+}
+
+.product-card .product-slide .operations button + button {
+    margin-left: 17px
+}
+
+.product-card .slide-features .features {
+    all: initial;
+    list-style: none;
+    margin: calc(-1 * var(--card-padding-v)) calc(-1 * var(--card-padding-h)) 0px calc(-1 * var(--card-padding-h));
+    padding: var(--card-padding-v) var(--card-padding-h);
+    overflow-y: visible
+}
+
+.product-card .slide-features .feature {
+    list-style: none;
+    position: relative;
+    padding-left: 26px
+}
+
+.product-card .slide-features .feature:after {
+    content: "";
+    display: block;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeT0iMC41IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRURFOUZFIi8+CjxwYXRoIGQ9Ik00IDguNUw3IDExLjVMMTIgNi41IiBzdHJva2U9IiM3QzNBRUQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=) no-repeat center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: -1px
+}
+
+.product-card .slide-features .feature .feature-title {
+    color: var(--text-primary-color);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1
+}
+
+.product-card .slide-features .feature .feature-desc {
+    display: block;
+    color: var(--text-secondary-color);
+    font-size: 14px;
+    margin-top: 4px;
+    line-height: 1.3
+}
+
+.product-card .slide-features .feature + .feature {
+    margin-top: 14px
+}
+
+.product-card .slide-account .confirm-email {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--highlight-color);
+    margin: 30px 0
+}
+
+.product-card .slide-account .detail {
+    color: var(--text-secondary-color);
+    font-size: 14px
+}
+
+.product-card .slide-account .detail p + p {
+    margin-top: .5em
+}
+
+.product-card .slide-purchase .payment-methods {
+    margin: 36px 0
+}
+
+.product-card .slide-purchase .payment-methods .payment-method + .payment-method {
+    margin-left: 20px
+}
+
+.product-card .slide-purchase .payment-methods .payment-method {
+    cursor: pointer
+}
+
+.product-card .slide-purchase .payment-methods .payment-method .logo {
+    width: 70px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+.product-card .slide-purchase .payment-methods .payment-method .logo-paypal {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjgwMDAxIDI0LjQ4MTlIMS42ODg3OEMxLjQ3NTg4IDI0LjQ4MTkgMS4yOTQ4IDI0LjYzNjcgMS4yNjE2IDI0Ljg0NjhMMC4wMDMyNjM3NiAzMi44MjQ5Qy0wLjAyMTc0NjggMzIuOTgyNCAwLjEwMDE3IDMzLjEyNDMgMC4yNTk4NTUgMzMuMTI0M0gxLjc0NTE5QzEuOTU4MDkgMzMuMTI0MyAyLjEzOTE2IDMyLjk2OTUgMi4xNzIzNiAzMi43NTlMMi41MTE3NSAzMC42MDcyQzIuNTQ0NDkgMzAuMzk2NSAyLjcyNjAxIDMwLjI0MTkgMi45Mzg0NyAzMC4yNDE5SDMuOTIzMzhDNS45NzI4NiAzMC4yNDE5IDcuMTU1NiAyOS4yNTAyIDcuNDY0NjUgMjcuMjg0OUM3LjYwMzgxIDI2LjQyNTEgNy40NzA1NCAyNS43NDk1IDcuMDY3ODEgMjUuMjc2MkM2LjYyNTcgMjQuNzU2OSA1Ljg0MTI4IDI0LjQ4MTkgNC44MDAwMSAyNC40ODE5Wk01LjE1ODk2IDI3LjM5NThDNC45ODg4NSAyOC41MTIzIDQuMTM1ODQgMjguNTEyMyAzLjMxMTA2IDI4LjUxMjNIMi44NDE1N0wzLjE3MDk0IDI2LjQyNzJDMy4xOTA0OSAyNi4zMDEzIDMuMjk5NjcgMjYuMjA4NSAzLjQyNzA2IDI2LjIwODVIMy42NDIyNEM0LjIwNDA3IDI2LjIwODUgNC43MzQxMiAyNi4yMDg1IDUuMDA4MDEgMjYuNTI4N0M1LjE3MTE3IDI2LjcxOTggNS4yMjEyOCAyNy4wMDM2IDUuMTU4OTYgMjcuMzk1OFpNMTQuMTAwMiAyNy4zNkgxMi42MTAzQzEyLjQ4MzQgMjcuMzYgMTIuMzczNyAyNy40NTI5IDEyLjM1NDEgMjcuNTc5TDEyLjI4ODIgMjcuOTk1NkwxMi4xODQgMjcuODQ0N0MxMS44NjE1IDI3LjM3NjUgMTEuMTQyMyAyNy4yMiAxMC40MjQ0IDI3LjIyQzguNzc3OTIgMjcuMjIgNy4zNzE4MSAyOC40NjcgNy4wOTc5MSAzMC4yMTYzQzYuOTU1NiAzMS4wODg3IDcuMTU3OTEgMzEuOTIzIDcuNjUyODYgMzIuNTA0OUM4LjEwNjk3IDMzLjAzOTggOC43NTY2NSAzMy4yNjI4IDkuNTI5NSAzMy4yNjI4QzEwLjg1NiAzMy4yNjI4IDExLjU5MTggMzIuNDA5NyAxMS41OTE4IDMyLjQwOTdMMTEuNTI1MyAzMi44MjM4QzExLjUwMDIgMzIuOTgyMiAxMS42MjIxIDMzLjEyNDEgMTEuNzgwOSAzMy4xMjQxSDEzLjEyM0MxMy4zMzY1IDMzLjEyNDEgMTMuNTE2NSAzMi45NjkzIDEzLjU1MDEgMzIuNzU4OEwxNC4zNTU0IDI3LjY1OTRDMTQuMzgwOSAyNy41MDI2IDE0LjI1OTQgMjcuMzYgMTQuMTAwMiAyNy4zNlpNMTIuMDIzNCAzMC4yNTk4QzExLjg3OTYgMzEuMTExIDExLjIwNCAzMS42ODI0IDEwLjM0MjYgMzEuNjgyNEM5LjkwOTkyIDMxLjY4MjQgOS41NjQwMiAzMS41NDM2IDkuMzQyMTMgMzEuMjgwN0M5LjEyMTkyIDMxLjAxOTYgOS4wMzgxMyAzMC42NDc4IDkuMTA4MjMgMzAuMjMzOUM5LjI0MjU1IDI5LjM4OTkgOS45Mjk1IDI4LjggMTAuNzc3OSAyOC44QzExLjIwMDkgMjguOCAxMS41NDQ5IDI4Ljk0MDUgMTEuNzcxNCAyOS4yMDU3QzExLjk5ODMgMjkuNDczNyAxMi4wODg1IDI5Ljg0NzYgMTIuMDIzNCAzMC4yNTk4Wk0yMC41Mzc5IDI3LjM1OThIMjIuMDM1MkMyMi4yNDQ5IDI3LjM1OTggMjIuMzY3MiAyNy41OTUgMjIuMjQ4MSAyNy43NjdMMTcuMjY4NSAzNC45NTQ4QzE3LjE4NzggMzUuMDcxMiAxNy4wNTUgMzUuMTQwNSAxNi45MTMxIDM1LjE0MDVIMTUuNDE3N0MxNS4yMDcyIDM1LjE0MDUgMTUuMDg0MiAzNC45MDM0IDE1LjIwNjEgMzQuNzMxTDE2Ljc1NjcgMzIuNTQyNEwxNS4xMDc2IDI3LjcwMjhDMTUuMDUwNiAyNy41MzQ2IDE1LjE3NDggMjcuMzU5OCAxNS4zNTM3IDI3LjM1OThIMTYuODI0OUMxNy4wMTYgMjcuMzU5OCAxNy4xODQ3IDI3LjQ4NTMgMTcuMjM5OCAyNy42NjgzTDE4LjExNSAzMC41OTEyTDIwLjE4MDEgMjcuNTQ5NUMyMC4yNjA5IDI3LjQzMDggMjAuMzk1MiAyNy4zNTk4IDIwLjUzNzkgMjcuMzU5OFoiIGZpbGw9IiMyNTNCODAiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi43NzA5IDMyLjgyNDhMMzguMDQ3OCAyNC43MDA4QzM4LjA2NzMgMjQuNTc0NyAzOC4xNzY2IDI0LjQ4MTkgMzguMzAzNSAyNC40ODE0SDM5Ljc0MUMzOS44OTk4IDI0LjQ4MTQgNDAuMDIxNyAyNC42MjM4IDM5Ljk5NjYgMjQuNzgxMkwzOC43Mzc0IDMyLjc1ODlDMzguNzA0NiAzMi45Njk1IDM4LjUyMzUgMzMuMTI0MiAzOC4zMTAzIDMzLjEyNDJIMzcuMDI2NUMzNi44Njc3IDMzLjEyNDIgMzYuNzQ1OSAzMi45ODIzIDM2Ljc3MDkgMzIuODI0OFpNMjYuOTkyMSAyNC40ODE5SDIzLjg4MDNDMjMuNjY3OSAyNC40ODE5IDIzLjQ4NjkgMjQuNjM2NiAyMy40NTM2IDI0Ljg0NjdMMjIuMTk1MyAzMi44MjQ4QzIyLjE3MDIgMzIuOTgyMyAyMi4yOTIxIDMzLjEyNDIgMjIuNDUxMSAzMy4xMjQySDI0LjA0NzdDMjQuMTk2MSAzMy4xMjQyIDI0LjMyMzEgMzMuMDE2IDI0LjM0NjIgMzIuODY4NkwyNC43MDMzIDMwLjYwNzFDMjQuNzM2MSAzMC4zOTY0IDI0LjkxNzYgMzAuMjQxOSAyNS4xMyAzMC4yNDE5SDI2LjExNDVDMjguMTY0NCAzMC4yNDE5IDI5LjM0NjkgMjkuMjUwMSAyOS42NTYyIDI3LjI4NDhDMjkuNzk1NyAyNi40MjUgMjkuNjYxNiAyNS43NDk0IDI5LjI1OTEgMjUuMjc2MkMyOC44MTcyIDI0Ljc1NjggMjguMDMzNCAyNC40ODE5IDI2Ljk5MjEgMjQuNDgxOVpNMjcuMzUxMSAyNy4zOTU4QzI3LjE4MTQgMjguNTEyMiAyNi4zMjg0IDI4LjUxMjIgMjUuNTAzMSAyOC41MTIySDI1LjAzNEwyNS4zNjM5IDI2LjQyNzFDMjUuMzgzNSAyNi4zMDEyIDI1LjQ5MTcgMjYuMjA4NCAyNS42MTk1IDI2LjIwODRIMjUuODM0N0MyNi4zOTYxIDI2LjIwODQgMjYuOTI2NyAyNi4yMDg0IDI3LjIwMDQgMjYuNTI4NkMyNy4zNjM3IDI2LjcxOTggMjcuNDEzNCAyNy4wMDM2IDI3LjM1MTEgMjcuMzk1OFpNMzYuMjkxNSAyNy4zNkgzNC44MDI3QzM0LjY3NDcgMjcuMzYgMzQuNTY2MSAyNy40NTI4IDM0LjU0NjkgMjcuNTc4OUwzNC40ODEgMjcuOTk1NkwzNC4zNzY0IDI3Ljg0NDZDMzQuMDUzOCAyNy4zNzY0IDMzLjMzNTEgMjcuMjIgMzIuNjE3MiAyNy4yMkMzMC45NzA3IDI3LjIyIDI5LjU2NSAyOC40NjY5IDI5LjI5MTEgMzAuMjE2MkMyOS4xNDkyIDMxLjA4ODYgMjkuMzUwNyAzMS45MjI5IDI5Ljg0NTYgMzIuNTA0OEMzMC4zMDA2IDMzLjAzOTggMzAuOTQ5NCAzMy4yNjI3IDMxLjcyMjMgMzMuMjYyN0MzMy4wNDg4IDMzLjI2MjcgMzMuNzg0NCAzMi40MDk3IDMzLjc4NDQgMzIuNDA5N0wzMy43MTgxIDMyLjgyMzhDMzMuNjkzIDMyLjk4MjEgMzMuODE0OSAzMy4xMjQgMzMuOTc0NyAzMy4xMjRIMzUuMzE2MkMzNS41Mjg2IDMzLjEyNCAzNS43MDk2IDMyLjk2OTMgMzUuNzQyOSAzMi43NTg3TDM2LjU0ODYgMjcuNjU5M0MzNi41NzMyIDI3LjUwMjUgMzYuNDUxMyAyNy4zNiAzNi4yOTE1IDI3LjM2Wk0zNC4yMTQ5IDMwLjI1OThDMzQuMDcyIDMxLjExMDkgMzMuMzk1NSAzMS42ODIzIDMyLjUzMzggMzEuNjgyM0MzMi4xMDIxIDMxLjY4MjMgMzEuNzU1NSAzMS41NDM2IDMxLjUzMzQgMzEuMjgwNkMzMS4zMTMyIDMxLjAxOTYgMzEuMjMwNSAzMC42NDc4IDMxLjI5OTcgMzAuMjMzOUMzMS40MzQ3IDI5LjM4OTkgMzIuMTIwOCAyOC44IDMyLjk2OTIgMjguOEMzMy4zOTI0IDI4LjggMzMuNzM2MiAyOC45NDA0IDMzLjk2MjkgMjkuMjA1N0MzNC4xOTA3IDI5LjQ3MzcgMzQuMjgwOCAyOS44NDc2IDM0LjIxNDkgMzAuMjU5OFoiIGZpbGw9IiMxNzlCRDciLz4KPHBhdGggZD0iTTE2LjMxNCAyMS42Mjc3TDE2LjY5NjYgMTkuMTk4M0wxNS44NDQ2IDE5LjE3ODVIMTEuNzc2MUwxNC42MDM1IDEuMjUwODFDMTQuNjEyMSAxLjE5NjY4IDE0LjY0MDggMS4xNDYyMiAxNC42ODI0IDEuMTEwMzlDMTQuNzI0MSAxLjA3NDU2IDE0Ljc3NzYgMS4wNTQ4MSAxNC44MzMyIDEuMDU0ODFIMjEuNjkzMkMyMy45NzA3IDEuMDU0ODEgMjUuNTQyMyAxLjUyODczIDI2LjM2MjkgMi40NjQxMkMyNi43NDc1IDIuOTAyOTQgMjYuOTkyNiAzLjM2MTQ5IDI3LjExMTEgMy44NjYxMkMyNy4yMzUzIDQuMzk1NjQgMjcuMjM3NiA1LjAyODI1IDI3LjExNjIgNS43OTk4M0wyNy4xMDczIDUuODU2MTVWNi4zNTA1M0wyNy40OTIyIDYuNTY4NDlDMjcuODE2MiA2Ljc0MDM0IDI4LjA3MzQgNi45MzcwOCAyOC4yNzA5IDcuMTYyMzRDMjguNjAwMiA3LjUzNzUyIDI4LjgxMyA4LjAxNDM2IDI4LjkwMjkgOC41Nzk2OUMyOC45OTU3IDkuMTYxMTIgMjguOTY1IDkuODUyOTggMjguODEzIDEwLjYzNjNDMjguNjM3NCAxMS41MzczIDI4LjM1MzYgMTIuMzIyIDI3Ljk3MDUgMTIuOTY0MkMyNy42MTc4IDEzLjU1NTggMjcuMTY4OCAxNC4wNDY1IDI2LjYzNTcgMTQuNDI2OUMyNi4xMjY3IDE0Ljc4ODEgMjUuNTIxOCAxNS4wNjI1IDI0LjgzOCAxNS4yMzhDMjQuMTc1MyAxNS40MTA1IDIzLjQxOTkgMTUuNDk3NiAyMi41OTEzIDE1LjQ5NzZIMjIuMDU3NEMyMS42NzU3IDE1LjQ5NzYgMjEuMzA0OCAxNS42MzUxIDIxLjAxMzggMTUuODgxNkMyMC43MjIgMTYuMTMzMiAyMC41Mjg4IDE2LjQ3NjggMjAuNDY5NiAxNi44NTI4TDIwLjQyOTQgMTcuMDcxNUwxOS43NTM2IDIxLjM1MzRMMTkuNzIyOSAyMS41MTA3QzE5LjcxNDkgMjEuNTYwNiAxOS43MDEgMjEuNTg1NCAxOS42ODA2IDIxLjYwMjNDMTkuNjYyMiAyMS42MTc0IDE5LjYzNTkgMjEuNjI3NyAxOS42MTAyIDIxLjYyNzdIMTYuMzE0WiIgZmlsbD0iIzI1M0I4MCIvPgo8cGF0aCBkPSJNMjcuODU2NCA1LjkxMzQ1QzI3LjgzNiA2LjA0NDM2IDI3LjgxMjYgNi4xNzgxOSAyNy43ODYzIDYuMzE1NjhDMjYuODgxNCAxMC45NjA1IDIzLjc4NjUgMTIuNTY1MSAxOS44MzM0IDEyLjU2NTFIMTcuODIwOEMxNy4zMzc0IDEyLjU2NTEgMTYuOTMgMTIuOTE2MSAxNi44NTQ3IDEzLjM5M0wxNS44MjQxIDE5LjkyODRMMTUuNTMyMyAyMS43ODA5QzE1LjQ4MzMgMjIuMDkzOSAxNS43MjQ4IDIyLjM3NjIgMTYuMDQwNiAyMi4zNzYySDE5LjYxMDVDMjAuMDMzMiAyMi4zNzYyIDIwLjM5MjIgMjIuMDY5MSAyMC40NTg3IDIxLjY1MjJMMjAuNDkzOCAyMS40NzA3TDIxLjE2NiAxNy4yMDU1TDIxLjIwOTIgMTYuOTcxNkMyMS4yNzQ5IDE2LjU1MzMgMjEuNjM0NyAxNi4yNDYxIDIyLjA1NzQgMTYuMjQ2MUgyMi41OTEzQzI2LjA0OTggMTYuMjQ2MSAyOC43NTc0IDE0Ljg0MTkgMjkuNTQ4OCAxMC43Nzg0QzI5Ljg3OTMgOS4wODA5MyAyOS43MDgyIDcuNjYzNTggMjguODMzNCA2LjY2Njc0QzI4LjU2ODggNi4zNjYxNSAyOC4yNDA0IDYuMTE2NzYgMjcuODU2NCA1LjkxMzQ1WiIgZmlsbD0iIzE3OUJENyIvPgo8cGF0aCBkPSJNMjYuOTA5NiA1LjUzNjM5QzI2Ljc3MTUgNS40OTYxNiAyNi42Mjg4IDUuNDU5NTkgMjYuNDgyNSA1LjQyNjY4QzI2LjMzNTUgNS4zOTQ1MSAyNi4xODQ4IDUuMzY1OTkgMjYuMDI5OCA1LjM0MTEyQzI1LjQ4NzEgNS4yNTMzNSAyNC44OTI2IDUuMjExNjcgMjQuMjU1NSA1LjIxMTY3SDE4Ljg3ODdDMTguNzQ2MyA1LjIxMTY3IDE4LjYyMDYgNS4yNDE2NSAxOC41MDc5IDUuMjk1NzhDMTguMjU5OSA1LjQxNDk4IDE4LjA3NTcgNS42NDk3NiAxOC4wMzExIDUuOTM3MTdMMTYuODg3MSAxMy4xODJMMTYuODU0MiAxMy4zOTMzQzE2LjkyOTYgMTIuOTE2NSAxNy4zMzcgMTIuNTY1NCAxNy44MjA0IDEyLjU2NTRIMTkuODMzQzIzLjc4NjEgMTIuNTY1NCAyNi44ODEyIDEwLjk2MDEgMjcuNzg1OSA2LjMxNjAxQzI3LjgxMjggNi4xNzg1MSAyNy44MzU1IDYuMDQ0NjggMjcuODU2IDUuOTEzNzhDMjcuNjI3MSA1Ljc5MjM3IDI3LjM3OTEgNS42ODg1MSAyNy4xMTIyIDUuNjAwMDFDMjcuMDQ2NSA1LjU3ODA3IDI2Ljk3ODUgNS41NTY4NyAyNi45MDk2IDUuNTM2MzlaIiBmaWxsPSIjMjIyRDY1Ii8+CjxwYXRoIGQ9Ik0xOC4wMzExIDUuOTM2OTZDMTguMDc1OCA1LjY0OTUzIDE4LjI2MDIgNS40MTQ3NyAxOC41MDggNS4yOTYyOUMxOC42MjE1IDUuMjQyMTYgMTguNzQ2NSA1LjIxMjE4IDE4Ljg3ODcgNS4yMTIxOEgyNC4yNTU4QzI0Ljg5MjggNS4yMTIxOCAyNS40ODc0IDUuMjUzODcgMjYuMDI5OSA1LjM0MTYzQzI2LjE4NSA1LjM2NjUgMjYuMzM1OCA1LjM5NTAyIDI2LjQ4MjcgNS40MjcxOUMyNi42MjkgNS40NjAxMiAyNi43NzE2IDUuNDk2NjkgMjYuOTA5OSA1LjUzNjlDMjYuOTc4NSA1LjU1NzM4IDI3LjA0NjUgNS41Nzg1OCAyNy4xMTMxIDUuNTk5OEMyNy4zOCA1LjY4ODI5IDI3LjYyOCA1Ljc5Mjg4IDI3Ljg1NjggNS45MTM1NUMyOC4xMjYxIDQuMTk3MDYgMjcuODU0NyAzLjAyODM3IDI2LjkyNjcgMS45NzAwOUMyNS45MDM2IDAuODA1MDU0IDI0LjA1NjggMC4zMDYyNzQgMjEuNjkzOSAwLjMwNjI3NEgxNC44MzM3QzE0LjM1MDkgMC4zMDYyNzQgMTMuOTM5MyAwLjY1NzMwNyAxMy44NjQ2IDEuMTM0ODlMMTEuMDA3MyAxOS4yNDY4QzEwLjk1MDkgMTkuNjA1MiAxMS4yMjczIDE5LjkyODUgMTEuNTg4NiAxOS45Mjg1SDE1LjgyNEwxNi44ODczIDEzLjE4MTdMMTguMDMxMSA1LjkzNjk2WiIgZmlsbD0iIzI1M0I4MCIvPgo8L3N2Zz4K)
+}
+
+.product-card .slide-purchase .payment-methods .payment-method .logo-alipay {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCA1NiAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTU1Ljk4NjcgNC4xNDU4OUw1NS45OTk5IDQuMTMxMzVINTMuOTA3Nkw1Mi41ODYzIDguNzExNDlINTIuNTE2Mkw1MC45OTkyIDQuMTMxMzVINDguNTEyN0w1MS41MDQ0IDExLjY5TDUwLjI1NDYgMTMuOTkzOVYxNC4wNDk1SDUyLjIwNjdMNTUuOTg2NyA0LjE0NTg5WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTMyLjc5MTEgNC4xMzEzNUgzMC41NzE4VjExLjY2MjJIMzIuNzkxMVY0LjEzMTM1WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTQ4LjA3NjMgOS43Nzg5MVY2LjYzMjQ1QzQ4LjA3NjMgNC45MTgzNyA0Ny4wNjQ1IDMuOTc2NjggNDUuMjgwMyAzLjk3NjY4QzQ0LjE0MTYgMy45NzY2OCA0My4zNTU5IDQuMTczNzUgNDEuOTIyMyA0LjYwODg4TDQyLjMxNTEgNi4zMzc1MkM0My42MjE4IDUuNzQ3NjQgNDQuMTk3MSA1LjQ5NTAzIDQ0LjgwMTUgNS40OTUwM0M0NS41MzE2IDUuNDk1MDMgNDUuODU1NyA2LjAxNDggNDUuODU1NyA2LjgxNjNWNi44NzE4NUM0My4zMTIzIDcuMzQ5MyA0Mi41MjU0IDcuNjE2NDYgNDIuMDM0NyA4LjEwODQ3QzQxLjY2OTYgOC40NzM1MSA0MS41MTQ5IDguOTkzMjkgNDEuNTE0OSA5LjU5NzcxQzQxLjUxNDkgMTEuMDQ0NiA0Mi42MzkxIDExLjgxNyA0My42OTE5IDExLjgxN0M0NC40Nzg4IDExLjgxNyA0NS4xMTEgMTEuNTIyMSA0NS45NjgxIDEwLjg3NTNMNDYuMTIyOCAxMS42NjIzSDQ4LjM0MjFMNDguMDc2MyA5Ljc3ODkxWk00NS44NTcgOS44MzU3OEM0NS4yNjcxIDEwLjE1ODUgNDQuOTI5OCAxMC4yODU1IDQ0LjUzNyAxMC4yODU1QzQ0LjAwMjcgMTAuMjg1NSA0My42NjU0IDkuOTMzNjUgNDMuNjY1NCA5LjM3Mjg3QzQzLjY2NTQgOS4xNjI1OCA0My43MDc4IDguOTUwOTYgNDMuODc1NyA4Ljc4Mjk5QzQ0LjE0MjkgOC41MTU4MyA0NC42NjI3IDguMzE4NzYgNDUuODU3IDguMDM4MzdWOS44MzU3OFoiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0zOC4zMTMgMy45NzY2OEMzNy40OTgzIDMuOTc2NjggMzYuODY2MSA0LjI4NjE3IDM2LjE0OTIgNC44NzYwNVY0LjEzMTQzSDMzLjkyOTlWMTQuMDQ5NkgzNi4xNDkyVjExLjU5MDlDMzYuNTcxMiAxMS43MDMzIDM2Ljk2NCAxMS43NjAyIDM3LjQ0MTQgMTEuNzYwMkMzOS40MjI3IDExLjc2MDIgNDEuMjA2OSAxMC4yOTg3IDQxLjIwNjkgNy42OTk3OUM0MS4yMDY5IDUuMzY4MDUgMzkuOTE0NyAzLjk3NjY4IDM4LjMxMyAzLjk3NjY4Wk0zNi45MDcxIDEwLjM2ODhDMzYuNjU0NSAxMC4zNjg4IDM2LjQxNTEgMTAuMzQxIDM2LjE0NzkgMTAuMjU2NFY2LjE4Mjc3QzM2LjYxMjIgNS44NjAwNiAzNi45OTA0IDUuNzA1MzIgMzcuNDY3OSA1LjcwNTMyQzM4LjI5NzEgNS43MDUzMiAzOC45NTcxIDYuMzY1MjkgMzguOTU3MSA3Ljc3MTIxQzM4Ljk1ODQgOS41Njg2MiAzNy45ODkgMTAuMzY4OCAzNi45MDcxIDEwLjM2ODhaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTEuNzU5MiAwLjI1MjE5N0gyLjI0MzEyQzEuMDAzODUgMC4yNTIxOTcgMCAxLjI2NTMxIDAgMi41MTM4NFYxMi4xMTA2QzAgMTMuMzU5MSAxLjAwMzg1IDE0LjM3MjIgMi4yNDMxMiAxNC4zNzIySDExLjc1OTJDMTIuOTk4NSAxNC4zNzIyIDE0LjAwMSAxMy4zNTkxIDE0LjAwMSAxMi4xMTA2VjIuNTEzODRDMTQuMDAyMyAxLjI2Mzk4IDEyLjk5ODUgMC4yNTIxOTcgMTEuNzU5MiAwLjI1MjE5N1oiIGZpbGw9IiMxNjc3RkYiLz4KPHBhdGggZD0iTTExLjUyNzggOS4xMTg4NkMxMC45Njg0IDguOTI5NzMgMTAuMjE1OCA4LjY0MDA5IDkuMzc4NjEgOC4zMzQ1N0M5Ljg4MTIgNy40NTI0IDEwLjI4MzMgNi40NDg1NCAxMC41NDc4IDUuMzU3NEg3Ljc4NzUzVjQuMzU0ODhIMTEuMTY4MVYzLjc5NTQySDcuNzg3NTNWMi4xMjM2Nkg2LjQwODA2QzYuMTY2MDMgMi4xMjM2NiA2LjE2NjAzIDIuMzY0MzcgNi4xNjYwMyAyLjM2NDM3VjMuNzk0MUgyLjc0NzEyVjQuMzUzNTVINi4xNjYwM1Y1LjM1NjA4SDMuMzQyMjlWNS45MTU1NEg4LjgxNzgzQzguNjE4MTIgNi42MTEyMiA4LjM0ODMxIDcuMjY1OTEgOC4wMjk1NiA3Ljg1OTc2QzYuMjUzMzIgNy4yNjg1NiA0LjM1NjcyIDYuNzg5NzcgMy4xNjYzOCA3LjA4NDcxQzIuNDA0NTcgNy4yNzM4NCAxLjkxMzg4IDcuNjExMTEgMS42MjU1NiA3Ljk2NTU2QzAuMzAyOTY0IDkuNTg4MzkgMS4yNTEyNiAxMi4wNTM3IDQuMDQ0NTggMTIuMDUzN0M1LjY5NjUxIDEyLjA1MzcgNy4yODc1OSAxMS4xMjUyIDguNTIwMjUgOS41OTVDMTAuMzYgMTAuNDg2NCAxNC4wMDExIDEyLjAxOCAxNC4wMDExIDEyLjAxOFY5LjgzNTcxQzE0LjAwMjQgOS44MzU3MSAxMy41NDQ4IDkuNzk4NjggMTEuNTI3OCA5LjExODg2Wk0zLjc4NDAzIDExLjExMDdDMS42MDU3MiAxMS4xMTA3IDAuOTYxNjE1IDkuMzgwNzQgMi4wMzgyMSA4LjQzMzc2QzIuMzk3OTUgOC4xMTM2OSAzLjA1Mzk2IDcuOTU3NjIgMy40MDMxMyA3LjkyMzI0QzQuNjk2NjIgNy43OTQ5NSA1Ljg5NDkgOC4yOTIyNCA3LjMwODc1IDguOTg3OTNDNi4zMTU0OCAxMC4yOTQ3IDUuMDQ5NzYgMTEuMTEwNyAzLjc4NDAzIDExLjExMDdaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMjIuOTQzIDEuNzU3MzJIMTkuOTY0NUwxNi42MzU1IDExLjY2MjJIMTguNjg2OEwxOS4yNDg5IDkuNzIzMzJIMjIuNzc1TDIzLjMwOTMgMTEuNjYyMkgyNS45MzZMMjIuOTQzIDEuNzU3MzJaTTE5LjcxMTkgOC4xMDcxTDIxLjAzMTggMy41NDE1SDIxLjA4NzRMMjIuMzM3MiA4LjEwNzFIMTkuNzExOVoiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0yOS4wNTM1IDEuNDA1NTJIMjYuODM0MlYxMS42NjA5SDI5LjA1MzVWMS40MDU1MloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0zMC40MDI2IDIuMzE5MzdDMzAuNDAyNiAzLjA0OTQ0IDMwLjkzNjkgMy41NDE0NSAzMS42ODE1IDMuNTQxNDVDMzIuNDI2MiAzLjU0MTQ1IDMyLjk2MDUgMy4wNDk0NCAzMi45NjA1IDIuMzE5MzdDMzIuOTYwNSAxLjYwMjUyIDMyLjQyNjIgMS4wOTcyOSAzMS42ODE1IDEuMDk3MjlDMzAuOTM2OSAxLjA5NzI5IDMwLjQwMjYgMS42MDI1MiAzMC40MDI2IDIuMzE5MzdaIiBmaWxsPSIjMTY3N0ZGIi8+Cjwvc3ZnPgo=)
+}
+
+.product-card .slide-purchase .payment-methods .payment-method .logo-wechat {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzEiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAzMSAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjI3MzkgMTcuNzExN0MxMS4xMzQgMTcuNzg0MSAxMC45NzY1IDE3LjgyNTkgMTAuODA5MSAxNy44MjU5QzEwLjQyMTUgMTcuODI1OSAxMC4wODQ2IDE3LjYwNzYgOS45MDc3NCAxNy4yODQ1TDkuODM5OTkgMTcuMTMyOEw3LjAxODE1IDEwLjc5MzZDNi45ODc2OSAxMC43MjQ3IDYuOTY4ODMgMTAuNjQ2NyA2Ljk2ODgzIDEwLjU3MDhDNi45Njg4MyAxMC4yNzg2IDcuMjAwMjQgMTAuMDQyIDcuNDg1NjIgMTAuMDQyQzcuNjAxMzcgMTAuMDQyIDcuNzA4NTcgMTAuMDgxMiA3Ljc5NDc0IDEwLjE0NjhMMTEuMTI0NyAxMi41NzQxQzExLjM2NzkgMTIuNzM2OCAxMS42NTg2IDEyLjgzMjQgMTEuOTcxMSAxMi44MzI0QzEyLjE1NzYgMTIuODMyNCAxMi4zMzU0IDEyLjc5NjkgMTIuNTAxMiAxMi43MzUxTDI4LjE2MDggNS42MDAwMkMyNS4zNTM4IDIuMjEzNDIgMjAuNzMxIDAgMTUuNDk5NyAwQzYuOTM5MTMgMCAwIDUuOTIwMTQgMCAxMy4yMjM1QzAgMTcuMjA3NiAyLjA4Nzc0IDIwLjc5NDMgNS4zNTU2IDIzLjIxODVDNS42MTc2OCAyMy40MTAyIDUuNzg5MzcgMjMuNzI0OSA1Ljc4OTM3IDI0LjA4MDJDNS43ODkzNyAyNC4xOTc3IDUuNzY0NzYgMjQuMzA0OSA1LjczNDc0IDI0LjQxN0M1LjQ3Mzc0IDI1LjQxMzYgNS4wNTYwMiAyNy4wMDk4IDUuMDM2NjIgMjcuMDg0NkM1LjAwNCAyNy4yMDk2IDQuOTUzMTYgMjcuMzQwMyA0Ljk1MzE2IDI3LjQ3MTJDNC45NTMxNiAyNy43NjMzIDUuMTg0MzUgMjggNS40NzAxNyAyOEM1LjU4MjEzIDI4IDUuNjczODMgMjcuOTU3MyA1Ljc2ODQ1IDI3LjkwMTZMOS4xNjE3MSAyNS44OTU5QzkuNDE2OTYgMjUuNzQ1MyA5LjY4NzE3IDI1LjY1MTYgOS45ODUwMSAyNS42NTE2QzEwLjE0MzQgMjUuNjUxNiAxMC4yOTY0IDI1LjY3NjggMTAuNDQwMyAyNS43MjE5QzEyLjAyMzMgMjYuMTg4IDEzLjczMTMgMjYuNDQ3IDE1LjQ5OTggMjYuNDQ3QzI0LjA1OTkgMjYuNDQ3IDMxIDIwLjUyNjUgMzEgMTMuMjIzNUMzMSAxMS4wMTE0IDMwLjM1OTYgOC45MjgxNSAyOS4yMzQzIDcuMDk1NTRMMTEuMzg3NSAxNy42NDQ3TDExLjI3MzkgMTcuNzExN1oiIGZpbGw9IiMxQUFEMTkiLz4KPC9zdmc+Cg==)
+}
+
+.product-card .slide-purchase .payment-methods .payment-method .logo-text {
+    margin-top: 7px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--text-primary-color)
+}
+
+.product-card .slide-purchase .payment-methods .payment-method:hover .logo, .product-card .slide-purchase .payment-methods .payment-method:focus .logo {
+    border-color: var(--highlight-color)
+}
+
+.product-card .slide-purchase .payment-methods .payment-method:hover .logo-text, .product-card .slide-purchase .payment-methods .payment-method:focus .logo-text {
+    color: var(--highlight-color)
+}
+
+.product-card .slide-purchase .detail {
+    color: var(--text-secondary-color);
+    font-size: 14px
+}
+
+.product-card .slide-purchase .detail p + p {
+    margin-top: .5em
+}
+
+.product-card .slide-success .congratulations {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary-color);
+    margin-bottom: 20px
+}
+
+.product-card .slide-success .detail {
+    color: var(--text-secondary-color);
+    font-size: 14px
+}
+
+.product-card .slide-success .detail p + p {
+    margin-top: .5em
+}
+
+.payment-mask {
+    position: fixed;
+    inset: 0;
+    background-color: #000c;
+    z-index: 10
+}
+
+@keyframes slidedown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px)
+    }
+}
+
+@keyframes slideup {
+    0% {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+}
+
+.payment-mask .payment-paypal {
+    color: #fff;
+    font-weight: 400;
+    animation: slidedown .3s ease
+}
+
+.payment-mask .payment-paypal .logo {
+    width: 70px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+.payment-mask .payment-paypal .logo-paypal {
+    margin: 0 auto;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjgwMDAxIDI0LjQ4MTlIMS42ODg3OEMxLjQ3NTg4IDI0LjQ4MTkgMS4yOTQ4IDI0LjYzNjcgMS4yNjE2IDI0Ljg0NjhMMC4wMDMyNjM3NiAzMi44MjQ5Qy0wLjAyMTc0NjggMzIuOTgyNCAwLjEwMDE3IDMzLjEyNDMgMC4yNTk4NTUgMzMuMTI0M0gxLjc0NTE5QzEuOTU4MDkgMzMuMTI0MyAyLjEzOTE2IDMyLjk2OTUgMi4xNzIzNiAzMi43NTlMMi41MTE3NSAzMC42MDcyQzIuNTQ0NDkgMzAuMzk2NSAyLjcyNjAxIDMwLjI0MTkgMi45Mzg0NyAzMC4yNDE5SDMuOTIzMzhDNS45NzI4NiAzMC4yNDE5IDcuMTU1NiAyOS4yNTAyIDcuNDY0NjUgMjcuMjg0OUM3LjYwMzgxIDI2LjQyNTEgNy40NzA1NCAyNS43NDk1IDcuMDY3ODEgMjUuMjc2MkM2LjYyNTcgMjQuNzU2OSA1Ljg0MTI4IDI0LjQ4MTkgNC44MDAwMSAyNC40ODE5Wk01LjE1ODk2IDI3LjM5NThDNC45ODg4NSAyOC41MTIzIDQuMTM1ODQgMjguNTEyMyAzLjMxMTA2IDI4LjUxMjNIMi44NDE1N0wzLjE3MDk0IDI2LjQyNzJDMy4xOTA0OSAyNi4zMDEzIDMuMjk5NjcgMjYuMjA4NSAzLjQyNzA2IDI2LjIwODVIMy42NDIyNEM0LjIwNDA3IDI2LjIwODUgNC43MzQxMiAyNi4yMDg1IDUuMDA4MDEgMjYuNTI4N0M1LjE3MTE3IDI2LjcxOTggNS4yMjEyOCAyNy4wMDM2IDUuMTU4OTYgMjcuMzk1OFpNMTQuMTAwMiAyNy4zNkgxMi42MTAzQzEyLjQ4MzQgMjcuMzYgMTIuMzczNyAyNy40NTI5IDEyLjM1NDEgMjcuNTc5TDEyLjI4ODIgMjcuOTk1NkwxMi4xODQgMjcuODQ0N0MxMS44NjE1IDI3LjM3NjUgMTEuMTQyMyAyNy4yMiAxMC40MjQ0IDI3LjIyQzguNzc3OTIgMjcuMjIgNy4zNzE4MSAyOC40NjcgNy4wOTc5MSAzMC4yMTYzQzYuOTU1NiAzMS4wODg3IDcuMTU3OTEgMzEuOTIzIDcuNjUyODYgMzIuNTA0OUM4LjEwNjk3IDMzLjAzOTggOC43NTY2NSAzMy4yNjI4IDkuNTI5NSAzMy4yNjI4QzEwLjg1NiAzMy4yNjI4IDExLjU5MTggMzIuNDA5NyAxMS41OTE4IDMyLjQwOTdMMTEuNTI1MyAzMi44MjM4QzExLjUwMDIgMzIuOTgyMiAxMS42MjIxIDMzLjEyNDEgMTEuNzgwOSAzMy4xMjQxSDEzLjEyM0MxMy4zMzY1IDMzLjEyNDEgMTMuNTE2NSAzMi45NjkzIDEzLjU1MDEgMzIuNzU4OEwxNC4zNTU0IDI3LjY1OTRDMTQuMzgwOSAyNy41MDI2IDE0LjI1OTQgMjcuMzYgMTQuMTAwMiAyNy4zNlpNMTIuMDIzNCAzMC4yNTk4QzExLjg3OTYgMzEuMTExIDExLjIwNCAzMS42ODI0IDEwLjM0MjYgMzEuNjgyNEM5LjkwOTkyIDMxLjY4MjQgOS41NjQwMiAzMS41NDM2IDkuMzQyMTMgMzEuMjgwN0M5LjEyMTkyIDMxLjAxOTYgOS4wMzgxMyAzMC42NDc4IDkuMTA4MjMgMzAuMjMzOUM5LjI0MjU1IDI5LjM4OTkgOS45Mjk1IDI4LjggMTAuNzc3OSAyOC44QzExLjIwMDkgMjguOCAxMS41NDQ5IDI4Ljk0MDUgMTEuNzcxNCAyOS4yMDU3QzExLjk5ODMgMjkuNDczNyAxMi4wODg1IDI5Ljg0NzYgMTIuMDIzNCAzMC4yNTk4Wk0yMC41Mzc5IDI3LjM1OThIMjIuMDM1MkMyMi4yNDQ5IDI3LjM1OTggMjIuMzY3MiAyNy41OTUgMjIuMjQ4MSAyNy43NjdMMTcuMjY4NSAzNC45NTQ4QzE3LjE4NzggMzUuMDcxMiAxNy4wNTUgMzUuMTQwNSAxNi45MTMxIDM1LjE0MDVIMTUuNDE3N0MxNS4yMDcyIDM1LjE0MDUgMTUuMDg0MiAzNC45MDM0IDE1LjIwNjEgMzQuNzMxTDE2Ljc1NjcgMzIuNTQyNEwxNS4xMDc2IDI3LjcwMjhDMTUuMDUwNiAyNy41MzQ2IDE1LjE3NDggMjcuMzU5OCAxNS4zNTM3IDI3LjM1OThIMTYuODI0OUMxNy4wMTYgMjcuMzU5OCAxNy4xODQ3IDI3LjQ4NTMgMTcuMjM5OCAyNy42NjgzTDE4LjExNSAzMC41OTEyTDIwLjE4MDEgMjcuNTQ5NUMyMC4yNjA5IDI3LjQzMDggMjAuMzk1MiAyNy4zNTk4IDIwLjUzNzkgMjcuMzU5OFoiIGZpbGw9IiMyNTNCODAiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi43NzA5IDMyLjgyNDhMMzguMDQ3OCAyNC43MDA4QzM4LjA2NzMgMjQuNTc0NyAzOC4xNzY2IDI0LjQ4MTkgMzguMzAzNSAyNC40ODE0SDM5Ljc0MUMzOS44OTk4IDI0LjQ4MTQgNDAuMDIxNyAyNC42MjM4IDM5Ljk5NjYgMjQuNzgxMkwzOC43Mzc0IDMyLjc1ODlDMzguNzA0NiAzMi45Njk1IDM4LjUyMzUgMzMuMTI0MiAzOC4zMTAzIDMzLjEyNDJIMzcuMDI2NUMzNi44Njc3IDMzLjEyNDIgMzYuNzQ1OSAzMi45ODIzIDM2Ljc3MDkgMzIuODI0OFpNMjYuOTkyMSAyNC40ODE5SDIzLjg4MDNDMjMuNjY3OSAyNC40ODE5IDIzLjQ4NjkgMjQuNjM2NiAyMy40NTM2IDI0Ljg0NjdMMjIuMTk1MyAzMi44MjQ4QzIyLjE3MDIgMzIuOTgyMyAyMi4yOTIxIDMzLjEyNDIgMjIuNDUxMSAzMy4xMjQySDI0LjA0NzdDMjQuMTk2MSAzMy4xMjQyIDI0LjMyMzEgMzMuMDE2IDI0LjM0NjIgMzIuODY4NkwyNC43MDMzIDMwLjYwNzFDMjQuNzM2MSAzMC4zOTY0IDI0LjkxNzYgMzAuMjQxOSAyNS4xMyAzMC4yNDE5SDI2LjExNDVDMjguMTY0NCAzMC4yNDE5IDI5LjM0NjkgMjkuMjUwMSAyOS42NTYyIDI3LjI4NDhDMjkuNzk1NyAyNi40MjUgMjkuNjYxNiAyNS43NDk0IDI5LjI1OTEgMjUuMjc2MkMyOC44MTcyIDI0Ljc1NjggMjguMDMzNCAyNC40ODE5IDI2Ljk5MjEgMjQuNDgxOVpNMjcuMzUxMSAyNy4zOTU4QzI3LjE4MTQgMjguNTEyMiAyNi4zMjg0IDI4LjUxMjIgMjUuNTAzMSAyOC41MTIySDI1LjAzNEwyNS4zNjM5IDI2LjQyNzFDMjUuMzgzNSAyNi4zMDEyIDI1LjQ5MTcgMjYuMjA4NCAyNS42MTk1IDI2LjIwODRIMjUuODM0N0MyNi4zOTYxIDI2LjIwODQgMjYuOTI2NyAyNi4yMDg0IDI3LjIwMDQgMjYuNTI4NkMyNy4zNjM3IDI2LjcxOTggMjcuNDEzNCAyNy4wMDM2IDI3LjM1MTEgMjcuMzk1OFpNMzYuMjkxNSAyNy4zNkgzNC44MDI3QzM0LjY3NDcgMjcuMzYgMzQuNTY2MSAyNy40NTI4IDM0LjU0NjkgMjcuNTc4OUwzNC40ODEgMjcuOTk1NkwzNC4zNzY0IDI3Ljg0NDZDMzQuMDUzOCAyNy4zNzY0IDMzLjMzNTEgMjcuMjIgMzIuNjE3MiAyNy4yMkMzMC45NzA3IDI3LjIyIDI5LjU2NSAyOC40NjY5IDI5LjI5MTEgMzAuMjE2MkMyOS4xNDkyIDMxLjA4ODYgMjkuMzUwNyAzMS45MjI5IDI5Ljg0NTYgMzIuNTA0OEMzMC4zMDA2IDMzLjAzOTggMzAuOTQ5NCAzMy4yNjI3IDMxLjcyMjMgMzMuMjYyN0MzMy4wNDg4IDMzLjI2MjcgMzMuNzg0NCAzMi40MDk3IDMzLjc4NDQgMzIuNDA5N0wzMy43MTgxIDMyLjgyMzhDMzMuNjkzIDMyLjk4MjEgMzMuODE0OSAzMy4xMjQgMzMuOTc0NyAzMy4xMjRIMzUuMzE2MkMzNS41Mjg2IDMzLjEyNCAzNS43MDk2IDMyLjk2OTMgMzUuNzQyOSAzMi43NTg3TDM2LjU0ODYgMjcuNjU5M0MzNi41NzMyIDI3LjUwMjUgMzYuNDUxMyAyNy4zNiAzNi4yOTE1IDI3LjM2Wk0zNC4yMTQ5IDMwLjI1OThDMzQuMDcyIDMxLjExMDkgMzMuMzk1NSAzMS42ODIzIDMyLjUzMzggMzEuNjgyM0MzMi4xMDIxIDMxLjY4MjMgMzEuNzU1NSAzMS41NDM2IDMxLjUzMzQgMzEuMjgwNkMzMS4zMTMyIDMxLjAxOTYgMzEuMjMwNSAzMC42NDc4IDMxLjI5OTcgMzAuMjMzOUMzMS40MzQ3IDI5LjM4OTkgMzIuMTIwOCAyOC44IDMyLjk2OTIgMjguOEMzMy4zOTI0IDI4LjggMzMuNzM2MiAyOC45NDA0IDMzLjk2MjkgMjkuMjA1N0MzNC4xOTA3IDI5LjQ3MzcgMzQuMjgwOCAyOS44NDc2IDM0LjIxNDkgMzAuMjU5OFoiIGZpbGw9IiMxNzlCRDciLz4KPHBhdGggZD0iTTE2LjMxNCAyMS42Mjc3TDE2LjY5NjYgMTkuMTk4M0wxNS44NDQ2IDE5LjE3ODVIMTEuNzc2MUwxNC42MDM1IDEuMjUwODFDMTQuNjEyMSAxLjE5NjY4IDE0LjY0MDggMS4xNDYyMiAxNC42ODI0IDEuMTEwMzlDMTQuNzI0MSAxLjA3NDU2IDE0Ljc3NzYgMS4wNTQ4MSAxNC44MzMyIDEuMDU0ODFIMjEuNjkzMkMyMy45NzA3IDEuMDU0ODEgMjUuNTQyMyAxLjUyODczIDI2LjM2MjkgMi40NjQxMkMyNi43NDc1IDIuOTAyOTQgMjYuOTkyNiAzLjM2MTQ5IDI3LjExMTEgMy44NjYxMkMyNy4yMzUzIDQuMzk1NjQgMjcuMjM3NiA1LjAyODI1IDI3LjExNjIgNS43OTk4M0wyNy4xMDczIDUuODU2MTVWNi4zNTA1M0wyNy40OTIyIDYuNTY4NDlDMjcuODE2MiA2Ljc0MDM0IDI4LjA3MzQgNi45MzcwOCAyOC4yNzA5IDcuMTYyMzRDMjguNjAwMiA3LjUzNzUyIDI4LjgxMyA4LjAxNDM2IDI4LjkwMjkgOC41Nzk2OUMyOC45OTU3IDkuMTYxMTIgMjguOTY1IDkuODUyOTggMjguODEzIDEwLjYzNjNDMjguNjM3NCAxMS41MzczIDI4LjM1MzYgMTIuMzIyIDI3Ljk3MDUgMTIuOTY0MkMyNy42MTc4IDEzLjU1NTggMjcuMTY4OCAxNC4wNDY1IDI2LjYzNTcgMTQuNDI2OUMyNi4xMjY3IDE0Ljc4ODEgMjUuNTIxOCAxNS4wNjI1IDI0LjgzOCAxNS4yMzhDMjQuMTc1MyAxNS40MTA1IDIzLjQxOTkgMTUuNDk3NiAyMi41OTEzIDE1LjQ5NzZIMjIuMDU3NEMyMS42NzU3IDE1LjQ5NzYgMjEuMzA0OCAxNS42MzUxIDIxLjAxMzggMTUuODgxNkMyMC43MjIgMTYuMTMzMiAyMC41Mjg4IDE2LjQ3NjggMjAuNDY5NiAxNi44NTI4TDIwLjQyOTQgMTcuMDcxNUwxOS43NTM2IDIxLjM1MzRMMTkuNzIyOSAyMS41MTA3QzE5LjcxNDkgMjEuNTYwNiAxOS43MDEgMjEuNTg1NCAxOS42ODA2IDIxLjYwMjNDMTkuNjYyMiAyMS42MTc0IDE5LjYzNTkgMjEuNjI3NyAxOS42MTAyIDIxLjYyNzdIMTYuMzE0WiIgZmlsbD0iIzI1M0I4MCIvPgo8cGF0aCBkPSJNMjcuODU2NCA1LjkxMzQ1QzI3LjgzNiA2LjA0NDM2IDI3LjgxMjYgNi4xNzgxOSAyNy43ODYzIDYuMzE1NjhDMjYuODgxNCAxMC45NjA1IDIzLjc4NjUgMTIuNTY1MSAxOS44MzM0IDEyLjU2NTFIMTcuODIwOEMxNy4zMzc0IDEyLjU2NTEgMTYuOTMgMTIuOTE2MSAxNi44NTQ3IDEzLjM5M0wxNS44MjQxIDE5LjkyODRMMTUuNTMyMyAyMS43ODA5QzE1LjQ4MzMgMjIuMDkzOSAxNS43MjQ4IDIyLjM3NjIgMTYuMDQwNiAyMi4zNzYySDE5LjYxMDVDMjAuMDMzMiAyMi4zNzYyIDIwLjM5MjIgMjIuMDY5MSAyMC40NTg3IDIxLjY1MjJMMjAuNDkzOCAyMS40NzA3TDIxLjE2NiAxNy4yMDU1TDIxLjIwOTIgMTYuOTcxNkMyMS4yNzQ5IDE2LjU1MzMgMjEuNjM0NyAxNi4yNDYxIDIyLjA1NzQgMTYuMjQ2MUgyMi41OTEzQzI2LjA0OTggMTYuMjQ2MSAyOC43NTc0IDE0Ljg0MTkgMjkuNTQ4OCAxMC43Nzg0QzI5Ljg3OTMgOS4wODA5MyAyOS43MDgyIDcuNjYzNTggMjguODMzNCA2LjY2Njc0QzI4LjU2ODggNi4zNjYxNSAyOC4yNDA0IDYuMTE2NzYgMjcuODU2NCA1LjkxMzQ1WiIgZmlsbD0iIzE3OUJENyIvPgo8cGF0aCBkPSJNMjYuOTA5NiA1LjUzNjM5QzI2Ljc3MTUgNS40OTYxNiAyNi42Mjg4IDUuNDU5NTkgMjYuNDgyNSA1LjQyNjY4QzI2LjMzNTUgNS4zOTQ1MSAyNi4xODQ4IDUuMzY1OTkgMjYuMDI5OCA1LjM0MTEyQzI1LjQ4NzEgNS4yNTMzNSAyNC44OTI2IDUuMjExNjcgMjQuMjU1NSA1LjIxMTY3SDE4Ljg3ODdDMTguNzQ2MyA1LjIxMTY3IDE4LjYyMDYgNS4yNDE2NSAxOC41MDc5IDUuMjk1NzhDMTguMjU5OSA1LjQxNDk4IDE4LjA3NTcgNS42NDk3NiAxOC4wMzExIDUuOTM3MTdMMTYuODg3MSAxMy4xODJMMTYuODU0MiAxMy4zOTMzQzE2LjkyOTYgMTIuOTE2NSAxNy4zMzcgMTIuNTY1NCAxNy44MjA0IDEyLjU2NTRIMTkuODMzQzIzLjc4NjEgMTIuNTY1NCAyNi44ODEyIDEwLjk2MDEgMjcuNzg1OSA2LjMxNjAxQzI3LjgxMjggNi4xNzg1MSAyNy44MzU1IDYuMDQ0NjggMjcuODU2IDUuOTEzNzhDMjcuNjI3MSA1Ljc5MjM3IDI3LjM3OTEgNS42ODg1MSAyNy4xMTIyIDUuNjAwMDFDMjcuMDQ2NSA1LjU3ODA3IDI2Ljk3ODUgNS41NTY4NyAyNi45MDk2IDUuNTM2MzlaIiBmaWxsPSIjMjIyRDY1Ii8+CjxwYXRoIGQ9Ik0xOC4wMzExIDUuOTM2OTZDMTguMDc1OCA1LjY0OTUzIDE4LjI2MDIgNS40MTQ3NyAxOC41MDggNS4yOTYyOUMxOC42MjE1IDUuMjQyMTYgMTguNzQ2NSA1LjIxMjE4IDE4Ljg3ODcgNS4yMTIxOEgyNC4yNTU4QzI0Ljg5MjggNS4yMTIxOCAyNS40ODc0IDUuMjUzODcgMjYuMDI5OSA1LjM0MTYzQzI2LjE4NSA1LjM2NjUgMjYuMzM1OCA1LjM5NTAyIDI2LjQ4MjcgNS40MjcxOUMyNi42MjkgNS40NjAxMiAyNi43NzE2IDUuNDk2NjkgMjYuOTA5OSA1LjUzNjlDMjYuOTc4NSA1LjU1NzM4IDI3LjA0NjUgNS41Nzg1OCAyNy4xMTMxIDUuNTk5OEMyNy4zOCA1LjY4ODI5IDI3LjYyOCA1Ljc5Mjg4IDI3Ljg1NjggNS45MTM1NUMyOC4xMjYxIDQuMTk3MDYgMjcuODU0NyAzLjAyODM3IDI2LjkyNjcgMS45NzAwOUMyNS45MDM2IDAuODA1MDU0IDI0LjA1NjggMC4zMDYyNzQgMjEuNjkzOSAwLjMwNjI3NEgxNC44MzM3QzE0LjM1MDkgMC4zMDYyNzQgMTMuOTM5MyAwLjY1NzMwNyAxMy44NjQ2IDEuMTM0ODlMMTEuMDA3MyAxOS4yNDY4QzEwLjk1MDkgMTkuNjA1MiAxMS4yMjczIDE5LjkyODUgMTEuNTg4NiAxOS45Mjg1SDE1LjgyNEwxNi44ODczIDEzLjE4MTdMMTguMDMxMSA1LjkzNjk2WiIgZmlsbD0iIzI1M0I4MCIvPgo8L3N2Zz4K)
+}
+
+.payment-mask .payment-paypal .link {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    white-space: nowrap
+}
+
+.payment-mask .payment-paypal .link .icon-open {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1IDguNzVWMTUuOTM3NUMxNSAxNi4xNDI3IDE0Ljk1OTYgMTYuMzQ1OSAxNC44ODExIDE2LjUzNTRDMTQuODAyNSAxNi43MjUgMTQuNjg3NCAxNi44OTczIDE0LjU0MjQgMTcuMDQyNEMxNC4zOTczIDE3LjE4NzQgMTQuMjI1IDE3LjMwMjUgMTQuMDM1NCAxNy4zODExQzEzLjg0NTkgMTcuNDU5NiAxMy42NDI3IDE3LjUgMTMuNDM3NSAxNy41SDQuMDYyNUMzLjY0ODEgMTcuNSAzLjI1MDY3IDE3LjMzNTQgMi45NTc2NSAxNy4wNDI0QzIuNjY0NjIgMTYuNzQ5MyAyLjUgMTYuMzUxOSAyLjUgMTUuOTM3NVY2LjU2MjVDMi41IDYuMTQ4MSAyLjY2NDYyIDUuNzUwNjcgMi45NTc2NSA1LjQ1NzY1QzMuMjUwNjcgNS4xNjQ2MiAzLjY0ODEgNSA0LjA2MjUgNUgxMC42MDQ3TTEzLjEyNSAyLjVIMTcuNVY2Ljg3NU04Ljc1IDExLjI1TDE3LjE4NzUgMi44MTI1IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K);
+    width: 20px;
+    height: 20px;
+    margin-left: 8px
+}
+
+.payment-mask .desc {
+    color: #fff;
+    width: 400px;
+    font-weight: 400;
+    margin-top: 40px;
+    font-size: 16px;
+    animation: slidedown .3s ease
+}
+
+.payment-mask .desc .price, .payment-mask .desc .email {
+    font-weight: 700;
+    text-decoration: underline
+}
+
+.payment-mask .desc p + p {
+    margin-top: 1em
+}
+
+.payment-mask .payment-qrcode {
+    max-height: 400px;
+    max-width: 260px;
+    animation: slidedown .3s ease;
+    border-radius: 6px;
+    margin-right: 20px
+}
+
+.payment-mask .payment-operations {
+    width: 350px;
+    margin-top: 100px;
+    animation: slideup .3s ease
+}
+
+.payment-mask .payment-operations button + button {
+    margin-left: 18px
+}
+
+html.smarttoc__is-active {
+    scroll-behavior: auto !important
+}
+
+#smarttoc-base {
+    --highlight-border-width: 3px;
+    --highlight-color: #8c5fd0;
+    --hover-color: rgba(86, 61, 124, .5);
+    --text-color: #808080;
+    --text-inactive-color: #80808040;
+    --background-color: white;
+    --border-color: #e5e5e5;
+    --border-color-inactive: #e5e5e581;
+    --match-highlight-color: yellow;
+    --scrollbar-color: #d9dadb;
+    --selection-background: rgb(218, 194, 255);
+    --searchbar-background: #f8f8f8;
+    --zindex-panel: 10000000;
+    --zindex-toolbar: calc(var(--zindex-panel) + 10);
+    --zindex-searchbar: calc(var(--zindex-panel) + 20);
+    --zindex-resizer: calc(var(--zindex-panel) + 30);
+    --zindex-tooltip: calc(var(--zindex-panel) + 40)
+}
+
+#smarttoc-base, #smarttoc-base *, #smarttoc-base *:after, #smarttoc-base *:before, #smarttoc-base *::-webkit-scrollbar, #smarttoc-base *::-webkit-scrollbar-thumb, #smarttoc-base *::-webkit-scrollbar-button, #smarttoc-base *::-webkit-scrollbar-corner {
+    all: revert
+}
+
+#smarttoc-base * {
+    margin: 0;
+    padding: 0
+}
+
+#smarttoc-base a, #smarttoc-base a.visited, #smarttoc-base a.active {
+    text-decoration: none
+}
+
+#smarttoc-base li {
+    display: block;
+    list-style: none
+}
+
+#smarttoc-base ul {
+    display: block;
+    padding: 0;
+    margin: 0
+}
+
+#smarttoc-base input {
+    border: none;
+    outline: none;
+    user-select: none;
+    background: none;
+    font: inherit;
+    appearance: none;
+    box-shadow: none
+}
+
+#smarttoc-base button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    font: inherit;
+    appearance: none;
+    box-shadow: none;
+    pointer-events: auto !important
+}
+
+#smarttoc-base button[disabled] {
+    cursor: default
+}
+
+#smarttoc-base .icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain
+}
+
+#smarttoc-base[data-theme=dark] {
+    --highlight-color: #bb86fc;
+    --hover-color: rgba(187, 134, 252, .5);
+    --text-color: #808080;
+    --text-inactive-color: #80808040;
+    --background-color: #252525;
+    --border-color: #5e5e5e38;
+    --border-color-inactive: #5e5e5e38;
+    --match-highlight-color: rgba(255, 255, 255, .17);
+    --scrollbar-color: #d9dadb33;
+    --selection-background: rgba(255, 255, 255, .083);
+    --searchbar-background: #323232
+}
+
+#smarttoc-base.smarttoc-transition, #smarttoc-base.smarttoc-transition *, #smarttoc-base.smarttoc-transition *:before, #smarttoc-base.smarttoc-transition *:after {
+    transition: background .3s ease, color .3s ease !important
+}
+
+#smarttoc-base.smarttoc-tooltip {
+    position: fixed;
+    z-index: var(--zindex-tooltip);
+    max-width: 400px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6px 8px;
+    min-height: 20px;
+    background: #8a8a8a;
+    box-shadow: 0 2px 8px #4e4e4e40;
+    border-radius: 2px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 13px;
+    color: #fff;
+    text-overflow: ellipsis
+}
+
+#smarttoc-base.smarttoc-tooltip[data-theme=dark] {
+    background: #474747;
+    color: #bebebe
+}
+
+.f-row {
+    display: flex;
+    flex-direction: row
+}
+
+.f-col {
+    display: flex;
+    flex-direction: column
+}
+
+.f-wrap {
+    flex-wrap: wrap
+}
+
+.f-nowrap {
+    flex-wrap: nowrap
+}
+
+.f-m-start {
+    justify-content: flex-start
+}
+
+.f-m-center {
+    justify-content: center
+}
+
+.f-m-end {
+    justify-content: flex-end
+}
+
+.f-m-between {
+    justify-content: space-between
+}
+
+.f-m-around {
+    justify-content: space-around
+}
+
+.f-c-stretch {
+    align-items: stretch
+}
+
+.f-c-start {
+    align-items: flex-start
+}
+
+.f-c-center {
+    align-items: center
+}
+
+.f-c-end {
+    align-items: flex-end
+}
+
+.f-c-baseline {
+    align-items: baseline
+}
+
+.f-cl-stretch {
+    align-content: stretch
+}
+
+.f-cl-start {
+    align-content: flex-start
+}
+
+.f-cl-center {
+    align-content: center
+}
+
+.f-cl-end {
+    align-content: flex-end
+}
+
+.f-cl-between {
+    align-content: space-between
+}
+
+.f-cl-around {
+    align-content: space-around
+}
+
+.f-o-1 {
+    order: 1
+}
+
+.f-o-2 {
+    order: 2
+}
+
+.f-o-3 {
+    order: 3
+}
+
+.f-o-4 {
+    order: 4
+}
+
+.f-o-5 {
+    order: 5
+}
+
+.f-o-6 {
+    order: 6
+}
+
+.f-0 {
+    flex-basis: 0;
+    flex-grow: 0;
+    flex-shrink: 0
+}
+
+.f-1 {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0
+}
+
+.f-2 {
+    flex-basis: 0;
+    flex-grow: 2;
+    flex-shrink: 0
+}
+
+.f-3 {
+    flex-basis: 0;
+    flex-grow: 3;
+    flex-shrink: 0
+}
+
+.f-4 {
+    flex-basis: 0;
+    flex-grow: 4;
+    flex-shrink: 0
+}
+
+.f-5 {
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 0
+}
+
+.f-6 {
+    flex-basis: 0;
+    flex-grow: 6;
+    flex-shrink: 0
+}
+
+.f-s-stretch {
+    align-self: stretch
+}
+
+.f-s-start {
+    align-self: flex-start
+}
+
+.f-s-center {
+    align-self: center
+}
+
+.f-s-end {
+    align-self: flex-end
+}
+
+.f-s-baseline {
+    align-self: baseline
+}
+
+.f-v-center {
+    display: flex;
+    align-items: center
+}
+
+.f-h-center {
+    display: flex;
+    justify-content: center
+}
+
+.f-center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
