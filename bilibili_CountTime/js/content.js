@@ -146,5 +146,5 @@ function hejiMethod(act, bond, cat, dog, email) {
     let second2 = needtime % 3600 % 60
     console.log(second2)
     let addContent2 = document.querySelector(email)
-    addUseTime("看完剩余合集用时" + hour2 + ":" + minute2 + ":" + second2, "remainTime", addContent2)
+    addUseTime("看完剩余需" + hour2 + ":" + minute2 + ":" + second2, "remainTime", addContent2)
 }
