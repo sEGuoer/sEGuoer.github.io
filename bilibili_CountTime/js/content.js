@@ -2,7 +2,7 @@ let control = "start";
 let controlInterval
 window.addEventListener("keyup",function (e) {
     e.preventDefault();
-    if (e.keyCode === 17){
+    if (e.keyCode === 49 ){
         if (control === "start"){
             f();
             control = "stop"
